@@ -1,14 +1,16 @@
 const winston = require('winston');
+require('winston-mongodb');
 
 const logpath = './logs/';
 
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.json(),
-    defaultMeta: {service: 'user-service'},
+    defaultMeta: { service: 'user-service' },
     transports: [
       new winston.transports.File({ filename: logpath + 'error.log', level: 'error'}),
       new winston.transports.File({ filename: logpath + 'combined.log'}),
+      new winston.transports.MongoDB({ db: 'mongodb://localhost/vidly'})
     ]
   });
 
