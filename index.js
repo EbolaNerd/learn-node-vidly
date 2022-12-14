@@ -1,3 +1,4 @@
+require('express-async-errors');
 const error = require('./middleware/error');
 const config = require('config');
 const Joi = require('joi');
@@ -11,6 +12,7 @@ const users = require('./routes/users');
 const auth = require('./routes/auth');
 const express = require('express');
 const app = express();
+
 
 if(!config.get('jwtPrivateKey')) {
   console.log('FATAL ERROR: jwtPrivateKey is not defined.');
