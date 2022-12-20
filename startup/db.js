@@ -7,6 +7,6 @@ module.exports = function(db_connectionString) {
     mongoose.set('useNewUrlParser', true);
     mongoose.set('useCreateIndex', true);
     mongoose.connect(db_connectionString)
-      .then(() => logger.info('Connected to MongoDB...', { metadata: 'metabitch!'}));
+      .then(() => logger.info('Connected to MongoDB...', { metadata: db_connectionString}));
 }
 

@@ -10,8 +10,12 @@ module.exports = winston.createLogger({
       service: 'user-service'
     },
     transports: [
+      new winston.transports.Console({ colorize: true, prettyPrint: true }),
       new winston.transports.File({ filename: logpath + 'error.log', level: 'error' }),
       new winston.transports.File({ filename: logpath + 'combined.log', level: 'info' }),
-      new winston.transports.MongoDB({ db: 'mongodb://localhost/vidly', level: 'info', options: { useUnifiedTopology: true , useNewUrlParser: true}})
+      new winston.transports.MongoDB({ db: 'mongodb://localhost/vidly', level: 'error', options: { 
+          useUnifiedTopology: true,
+          useNewUrlParser: true
+      }})
     ]
   });
