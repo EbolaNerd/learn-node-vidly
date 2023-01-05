@@ -53,12 +53,4 @@ router.post('/', auth, async (req, res) => {
   res.send(rental);
 });
 
-router.delete('/:id', auth, async (req, res) => {
-  const rental = await Rental.findByIdAndRemove(req.params.id);
-
-  if (!rental) return res.status(404).send('The rental with the given ID was not found.');
-
-  res.send(rental);
-});
-
 module.exports = router;
