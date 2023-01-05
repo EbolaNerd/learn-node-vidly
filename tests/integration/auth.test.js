@@ -22,7 +22,7 @@ describe('auth middleware', () => {
 
     afterEach( async () => { 
         await Genre.collection.deleteMany({});
-        server.close();
+        await server.close();
     });
 
     afterAll(async () => {
